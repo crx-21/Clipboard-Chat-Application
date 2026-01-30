@@ -1,0 +1,14 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "TButonCustom.h"
+//---------------------------------------------------------------------------
+void __fastcall TMyCustomButton::SetStaysPressed(bool Value)
+{
+    if (FStaysPressed != Value)
+    {
+        FStaysPressed = Value;
+        // Add logic to handle the pressed state
+    }
+#pragma package(smart_init)

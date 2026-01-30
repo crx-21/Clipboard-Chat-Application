@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/11/29 11:04:49.000.843,=D:\CrX's folder\ULBS\Proiect OOP\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 11:04:49.000.773,=D:\CrX's folder\ULBS\Proiect OOP\Project1PCH1.h</Transaction>
+    <Transaction>2025/11/29 11:05:51.000.513,D:\CrX's folder\ULBS\Proiect OOP\Project1PCH1.h=D:\EmbarcaderoServerClient\Server\ServerSidePCH1.h</Transaction>
+    <Transaction>2025/11/29 11:05:51.000.536,D:\CrX's folder\ULBS\Proiect OOP\Unit1.dfm=D:\EmbarcaderoServerClient\Server\Unit1.dfm</Transaction>
+    <Transaction>2025/11/29 11:05:51.000.536,D:\CrX's folder\ULBS\Proiect OOP\Unit1.h=D:\EmbarcaderoServerClient\Server\Unit1.h</Transaction>
+    <Transaction>2025/11/29 11:05:51.000.536,D:\CrX's folder\ULBS\Proiect OOP\Unit1.cpp=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 11:05:51.000.556,D:\CrX's folder\ULBS\Proiect OOP\Project1.cbproj=D:\EmbarcaderoServerClient\Server\ServerSide.cbproj</Transaction>
+    <Transaction>2025/11/29 11:05:56.000.678,D:\EmbarcaderoServerClient\Server\Unit1.cpp=D:\EmbarcaderoServerClient\Server\Server.cpp</Transaction>
+    <Transaction>2025/11/29 11:05:56.000.678,D:\EmbarcaderoServerClient\Server\Unit1.dfm=D:\EmbarcaderoServerClient\Server\Server.dfm</Transaction>
+    <Transaction>2025/11/29 11:05:56.000.678,D:\EmbarcaderoServerClient\Server\Unit1.h=D:\EmbarcaderoServerClient\Server\Server.h</Transaction>
+    <Transaction>2025/11/29 13:02:49.000.498,=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 13:03:46.000.828,D:\EmbarcaderoServerClient\Server\Unit1.cpp=D:\EmbarcaderoServerClient\Server\Message.cpp</Transaction>
+    <Transaction>2025/11/29 13:03:46.000.828,D:\EmbarcaderoServerClient\Server\Unit1.h=D:\EmbarcaderoServerClient\Server\Message.h</Transaction>
+    <Transaction>2025/11/29 13:04:09.000.230,D:\EmbarcaderoServerClient\Server\Message.h=D:\EmbarcaderoServerClient\Server\Clase\Message.h</Transaction>
+    <Transaction>2025/11/29 13:04:09.000.230,D:\EmbarcaderoServerClient\Server\Message.cpp=D:\EmbarcaderoServerClient\Server\Clase\Message.cpp</Transaction>
+    <Transaction>2025/11/29 14:36:06.000.784,=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 14:36:47.000.962,=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 14:37:06.000.177,D:\EmbarcaderoServerClient\Server\Unit1.cpp=D:\EmbarcaderoServerClient\Server\Clase\MessageManager.cpp</Transaction>
+    <Transaction>2025/11/29 14:37:06.000.177,D:\EmbarcaderoServerClient\Server\Unit1.h=D:\EmbarcaderoServerClient\Server\Clase\MessageManager.h</Transaction>
+    <Transaction>2025/12/09 10:34:44.000.415,=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/12/09 10:36:39.000.314,=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/12/09 10:37:09.000.022,D:\EmbarcaderoServerClient\Server\Clase\TextSaver.cpp=D:\EmbarcaderoServerClient\Server\Unit1.cpp</Transaction>
+    <Transaction>2025/12/09 10:37:09.000.022,D:\EmbarcaderoServerClient\Server\Clase\TextSaver.h=D:\EmbarcaderoServerClient\Server\Unit1.h</Transaction>
+    <Transaction>2025/12/09 10:40:58.000.835,D:\EmbarcaderoServerClient\Server\Clase\TextSaver.cpp=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Clase"/>
+    <File Path="Clase\Message.cpp"/>
+    <File Path="Clase\Message.cpp"/>
+    <File Path="Clase\Message.h"/>
+    <File Path="Clase\MessageManager.cpp"/>
+    <File Path="Clase\MessageManager.cpp"/>
+    <File Path="Clase\MessageManager.h"/>
+    <File Path="Server.cpp"/>
+    <File Path="Server.cpp"/>
+    <File Path="Server.dfm"/>
+    <File Path="Server.h"/>
+    <File Path="ServerSide.cpp"/>
+    <File Path="ServerSidePCH1.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

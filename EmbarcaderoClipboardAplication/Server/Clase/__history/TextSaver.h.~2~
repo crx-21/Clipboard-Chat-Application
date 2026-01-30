@@ -1,0 +1,5 @@
+#ifndef TextSaverH
+#define TextSaverH
+#include "MessageManager.h"
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,61 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Message.h"
+//---------------------------------------------------------------------------
+bool Message::returnBold()
+{
+	return Bold;
+}
+bool Message:: returnItalic()
+{
+	return Italic;
+}
+bool Message:: returnUnderline()
+{
+    return Underline;
+}
+void Message::setBold(bool x)
+{
+	Bold=x;
+}
+void Message::setItalic(bool x)
+{
+  Italic=x;
+}
+void Message::setUnderline(bool x)
+{
+  Underline=x;
+}
+void Message::resetValues()
+{
+	Bold=false;
+	Italic=false;
+    Underline=false;
+}
+bool Message::returnisBold()
+{
+	return isBold();
+}
+bool Message::returnisItalic()
+{
+	return isItalic();
+}
+bool Message::returnisUnderline()
+{
+	return isUnderline();
+}
+void Message::setisBold(bool x)
+{
+  isBold=x;
+}
+void Message::setisItalic(bool x)
+{
+	isItalic=x;
+}
+void Message::setisUnderline(bool x)
+{
+      isUnderline=x;
+}
+#pragma package(smart_init)

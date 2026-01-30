@@ -1,0 +1,27 @@
+//---------------------------------------------------------------------------
+
+#ifndef MessageManagerH
+#define MessageManagerH
+#include <System.IOUtils.hpp>
+#include "Message.h"
+
+using namespace std;
+//---------------------------------------------------------------------------
+class MessageManager:public Message
+{
+	  protected:
+	  bool Checker;
+	  String documentsPath=GetDocumentsPath();
+	  String backupFolder=Combine(documentsPath, "ClipboardBackup");
+	  public:
+//Metode:
+void RegisterUser(int SocketHandle);
+bool isUser(String InputUser);
+void setCheckedFromText(AnsiString VerifyCheck);
+bool getCheckStatus();
+String returnCorectUser(int SocketHandle);
+String getTime();
+
+};
+
+#endif

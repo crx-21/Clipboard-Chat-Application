@@ -1,0 +1,63 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "UserSettings.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+
+//Setteri
+void UserSettings::SetColourForm(String Color)
+{
+	 ColourForm=Color;
+}
+
+void UserSettings::SetColourMemo(String Color)
+{
+     ColourMemo=Color;
+}
+
+void UserSettings::SetColourEdit(String Color)
+{
+	  ColourEdit=Color;
+}
+
+void UserSettings::SetColourText(String Color)
+{
+	  ColourText=Color;
+}
+
+void UserSettings::SetCheckThemeFolder(bool set)
+{
+	 CheckThemeFolder=set;
+}
+
+//Getteri
+String UserSettings::GetColourForm()
+{
+  return ColourForm;
+}
+
+String UserSettings::GetColourMemo()
+{
+   return ColourMemo;
+}
+
+String UserSettings::GetColourEdit()
+{
+	return ColourEdit;
+}
+
+String UserSettings::GetColourText()
+{
+  return ColourText;
+}
+
+bool UserSettings::GetCheckThemeFolder()
+{
+    return CheckThemeFolder;
+}
+
+
+

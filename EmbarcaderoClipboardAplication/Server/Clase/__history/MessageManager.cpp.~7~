@@ -1,0 +1,51 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "MessageManager.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+void MessageManager::RegisterUser(int SocketHandle)
+{
+	 clientUsers[SocketHandle]=user.c_str(); //Adaugam in map la sockethandle-ul userului, usernameu lui
+}
+bool MessageManager::isUser(String InputUser)
+{
+   if (InputUser.Pos("/user ") == 1) return true;   //Verificarea se face daca intalnim eticheta /user
+   else return false;
+}
+
+void MessageManager::setCheckedFromText(AnsiString VerifyCheck)
+{
+Checker=VerifyCheck.SubString(VerifyCheck.Length(),1).ToInt(); //Modul prin care facem rost de statusul check-ului
+
+}
+bool MessageManager::getCheckStatus()
+{
+	return Checker;     //Facem rost de valoarea lui Checker
+}
+String MessageManager::returnCorectUser(int SocketHandle)
+{
+	user=clientUsers[SocketHandle]; //Returnam userul corect din map in functie de handle
+	return user;
+}
+String MessageManager::getTime()
+{
+ String time;             //Timp
+   time=timestamp.Now();
+   return time;
+}
+
+void MessageManager::CreazaFolder()
+{
+    if (!DirectoryExists(backupFolder))
+{
+    CreateDir(backupFolder);
+}
+
+}
+
+String MessageManager::getBFolderPath()
+{
+  return backupFolder;
+}

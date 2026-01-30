@@ -1,0 +1,90 @@
+object Presets: TPresets
+  Left = 0
+  Top = 0
+  Caption = 'Presets'
+  ClientHeight = 441
+  ClientWidth = 454
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object CasutaTextPreset: TRichEdit
+    Left = 8
+    Top = 47
+    Width = 313
+    Height = 386
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Lines.Strings = (
+      'CasutaText')
+    ParentFont = False
+    TabOrder = 0
+  end
+  object btnClear: TButton
+    Left = 327
+    Top = 50
+    Width = 122
+    Height = 33
+    Caption = 'Clear Text'
+    TabOrder = 1
+    OnClick = btnClearClick
+  end
+  object btnSave: TButton
+    Left = 327
+    Top = 89
+    Width = 122
+    Height = 33
+    Caption = 'Save Current Preset'
+    TabOrder = 2
+  end
+  object btnLoad: TButton
+    Left = 327
+    Top = 128
+    Width = 122
+    Height = 33
+    Caption = 'Load Into Clipboard'
+    TabOrder = 3
+  end
+  object btnLoadClipboard: TButton
+    Left = 327
+    Top = 392
+    Width = 122
+    Height = 41
+    Caption = 'Load From Clipboard'
+    TabOrder = 4
+    OnClick = btnLoadClipboardClick
+  end
+  object btnPreset1: TButton
+    Left = 8
+    Top = 8
+    Width = 89
+    Height = 33
+    Caption = 'Preset 1'
+    TabOrder = 5
+    OnClick = btnPreset1Click
+  end
+  object btnPreset2: TButton
+    Left = 112
+    Top = 8
+    Width = 97
+    Height = 33
+    Caption = 'Preset 2'
+    TabOrder = 6
+    OnClick = btnPreset2Click
+  end
+  object btnPreset3: TButton
+    Left = 224
+    Top = 8
+    Width = 97
+    Height = 33
+    Caption = 'Preset 3'
+    TabOrder = 7
+    OnClick = btnPreset3Click
+  end
+end

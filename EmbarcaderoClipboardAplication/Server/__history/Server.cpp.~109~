@@ -1,0 +1,84 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Server.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TClipboardServer *ClipboardServer;
+//---------------------------------------------------------------------------
+__fastcall TClipboardServer::TClipboardServer(TComponent* Owner)
+	: TForm(Owner)
+{
+Server=new MessageManager();
+}
+
+void __fastcall TClipboardServer::ServerSocketClientConnect(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+Socket->SendText("Connected Succesfuly!\r\n"); //Informativ ptr client
+if(ServerSocket->Socket->ActiveConnections==1) Memo1->Lines->Clear(); //Pregatim logs memo
+Server->CreazaFolder(); //Creeam folderul pentru backup
+AnsiString backuppathlocal=Server->getBFolderPath() + "\\backup.txt";
+Backup.open(backuppathlocal.c_str());
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardServer::ServerSocketClientDisconnect(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+//Serverul nu functioneaza fara clienti.
+	if (ServerSocket->Socket->ActiveConnections-1==0)
+	{
+		Memo1->Enabled=false;
+		if(Backup.is_open()) Backup.close();
+	}
+
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardServer::ServerSocketClientRead(TObject *Sender, TCustomWinSocket *Socket)
+{
+	char str[256];
+	String ReceivedText; //Stocam aici pachetele primite de la clienti
+	int socketHandle=Socket->SocketHandle; //Fiecare client are propriul lui socketHandle. Asta ne permite sa identificam fiecare Client
+	ReceivedText = Socket->ReceiveText();
+	if(Server->isUser(ReceivedText)==true) //Verificam daca am primit user sau text.
+	{
+	  Server->setUser(ReceivedText.SubString(7, ReceivedText.Length() - 6).c_str()); //Setam userul pornind dupa eticheta /user si-l convertim in const char
+	  Server->RegisterUser(socketHandle); //Inregistram userul prin sockethandle-ul lui unic.
+	  Memo1->Lines->Add("Client " + IntToStr(Socket->SocketHandle) + " si-a schimbat username-ul: " + Server->getUser() + " [" + Server->getTime() + "]"); //logs
+	}
+	else
+	{
+	String user; //Useru local ptr folosire in event
+	 user=Server->returnCorectUser(socketHandle); //Face rost de username
+	 Server->setCheckedFromText(ReceivedText); //ignora textul si face rost de starea check-ului
+	 Server->setText(ReceivedText.SubString(1,ReceivedText.Length()-1));
+	 if(Backup.is_open())
+	 {
+	 AnsiString textBackup=Server->getText();
+     Backup << textBackup;
+     }
+
+	 for (int i = 0; i < ServerSocket->Socket->ActiveConnections; i++) //Trimite la toate conexiunile active
+	{
+		if (ServerSocket->Socket->Connections[i] != Socket) //Verifica daca conexiunea de la indexul i nu este la fel ca cea din Socket (Nu trimite la userul care a trimis mesajul propriul mesaj)
+		{
+			ServerSocket->Socket->Connections[i]->SendText(user + ": " + Server->getText()	 + " [" + Server->getTime() + "]"); //mesajul trimis clientilor
+			if(Server->getCheckStatus()==true)Memo1->Lines->Add("Client " + IntToStr(Socket->SocketHandle) + " (" + user + ") a scris in chat: " + Server->getText() + " [" + Server->getTime() + "]" + " Mesajul a fost salvat"); //Logs
+			else Memo1->Lines->Add("Client " + IntToStr(Socket->SocketHandle) + " (" + user + ") a scris in chat: " + Server->getText() + " [" + Server->getTime() + "]" + " Mesajul nu a fost salvat"); //Logs
+
+
+
+
+		}
+	}
+
+
+	}
+
+   
+
+}
+

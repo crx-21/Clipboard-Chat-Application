@@ -1,0 +1,46 @@
+//---------------------------------------------------------------------------
+
+#ifndef PresetsFormH
+#define PresetsFormH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <System.IOUtils.hpp>
+#include <fstream>
+#include <string>
+#include "Message.h"
+using namespace std;
+//---------------------------------------------------------------------------
+class TPresets : public TForm
+{
+__published:	// IDE-managed Components
+	TRichEdit *CasutaTextPreset;
+	TButton *btnClear;
+	TButton *btnSave;
+	TButton *btnLoadClipboard;
+	TButton *btnPreset1;
+	TButton *btnPreset2;
+	TButton *btnPreset3;
+	TButton *btnCopyClipboard;
+	void __fastcall btnPreset1Click(TObject *Sender);
+	void __fastcall btnPreset2Click(TObject *Sender);
+	void __fastcall btnPreset3Click(TObject *Sender);
+	void __fastcall btnClearClick(TObject *Sender);
+	void __fastcall btnLoadClipboardClick(TObject *Sender);
+private:
+
+	// User declarations
+public:
+Message *mesajePresets;
+
+
+		// User declarations
+	__fastcall TPresets(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TPresets *Presets;
+//---------------------------------------------------------------------------
+#endif

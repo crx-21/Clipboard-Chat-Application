@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+#include <vector>
+#ifndef MessagesToFileH
+#define MessagesToFileH
+#include <System.hpp>
+
+using namespace std;
+
+class MessagesToFile
+{
+	protected:
+	String Path="D:\\EmbarcaderoServerClient\\Client\\SavedMessages\\Saved.txt";
+	vector<String>SavedMessages;
+	bool GlobalCheck=false;
+	public:
+	void AddVector(String text)
+	String returnPath()
+	void setPath(String filePath)
+	void SetGlobalCheck(bool ok)
+    bool GetGlobalCheck()
+
+};
+//---------------------------------------------------------------------------
+#endif

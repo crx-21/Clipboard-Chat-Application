@@ -1,0 +1,37 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "MessagesToFile.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+void MessagesToFile::AddVector(String text)
+	{
+		SavedMessages.push_back(text);
+	}
+	String MessagesToFile::returnPath()
+	{
+       return Path;
+	}
+	void MessagesToFile::setPath(String filePath)
+	{
+		Path=filePath;
+    }
+	void MessagesToFile::SetGlobalCheck(bool ok)
+	{
+	  GlobalCheck=ok;
+	}
+	bool MessagesToFile::GetGlobalCheck()
+	{
+        return GlobalCheck;
+	}
+
+	bool MessagesToFile::GetCheckThemeFolder()
+	{
+        return setari.GetCheckThemeFolder();
+	}
+
+	void MessagesToFile::SetCheckThemeFolder(bool set)
+	{
+        setari.SetCheckThemeFolder(set);
+    }

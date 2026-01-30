@@ -1,0 +1,27 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "MessagesToFile.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+void MessageToFile::AddVector(String text)
+	{
+		SavedMessages.push_back(text);
+	}
+	String returnPath()
+	{
+       return Path;
+	}
+	void setPath(String filePath)
+	{
+		Path=filePath;
+    }
+	void SetGlobalCheck(bool ok)
+	{
+	  GlobalCheck=ok;
+	}
+	bool GetGlobalCheck()
+	{
+        return GlobalCheck;
+	}

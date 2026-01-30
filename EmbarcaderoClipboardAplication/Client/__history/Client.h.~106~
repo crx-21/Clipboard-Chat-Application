@@ -1,0 +1,94 @@
+//---------------------------------------------------------------------------
+
+#ifndef ClientH
+#define ClientH
+#include "MessagesToFile.h"
+#include "Message.h"
+#include <System.Classes.hpp>
+#include <System.Win.ScktComp.hpp>
+#include <System.SysUtils.hpp>
+#include <Vcl.Graphics.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Imaging.pngimage.hpp>
+#include <Vcl.Buttons.hpp>
+#include <Vcl.ColorGrd.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <fstream>
+#include <string>
+#include <System.Classes.hpp>
+#include <System.Win.ScktComp.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <System.Win.ScktComp.hpp>
+#include "ThemeForm.h"
+#include "PresetsForm.h"
+using namespace std;
+//---------------------------------------------------------------------------
+class TClipboardClient : public TForm
+{
+__published:	// IDE-managed Components
+	TClientSocket *ClientSocket;
+	TButton *btnSend;
+	TEdit *Edit1;
+	TCheckBox *CheckBox;
+	TEdit *UserBox;
+	TLabel *Label1;
+	TButton *btnUserSet;
+	TOpenDialog *OpenDialog1;
+	TSpeedButton *btnThemes;
+	TColorBox *ColorBox1;
+	TComboBox *FontList;
+	TSpeedButton *btnBold;
+	TSpeedButton *btnItalic;
+	TSpeedButton *btnUnderline;
+	TRichEdit *CasutaText;
+	TButton *btnCopy;
+	TButton *btnPresets;
+
+	void __fastcall btnSendClick(TObject *Sender);
+	void __fastcall ClientSocketDisconnect(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall ClientSocketError(TObject *Sender, TCustomWinSocket *Socket, TErrorEvent ErrorEvent,
+          int &ErrorCode);
+	void __fastcall ClientSocketRead(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall ClientSocketConnect(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall btnUserSetClick(TObject *Sender);
+	void __fastcall ClientSocketConnecting(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall btnThemesClick(TObject *Sender);
+	void __fastcall btnBoldClick(TObject *Sender);
+	void __fastcall btnItalicClick(TObject *Sender);
+	void __fastcall btnUnderlineClick(TObject *Sender);
+	void __fastcall btnCopyClick(TObject *Sender);
+
+
+
+
+
+
+private:	// User declarations
+AnsiString Str;
+AnsiString ServerStr;
+AnsiString User;
+AnsiString Culoare;
+Boolean Check;
+ofstream FisierLocal;
+ifstream FisierSetari;
+int SumaCaractere=0;
+public:
+MessagesToFile *fisierClient;
+Message *mesajeClient=new Message();
+
+		// User declarations
+	__fastcall TClipboardClient(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TClipboardClient *ClipboardClient;
+//---------------------------------------------------------------------------
+#endif

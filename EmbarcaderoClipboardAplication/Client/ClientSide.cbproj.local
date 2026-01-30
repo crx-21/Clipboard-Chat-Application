@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/11/29 11:05:08.000.593,=D:\CrX's folder\ULBS\Proiect OOP\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 11:05:08.000.523,=D:\CrX's folder\ULBS\Proiect OOP\Project1PCH1.h</Transaction>
+    <Transaction>2025/11/29 11:06:28.000.213,D:\CrX's folder\ULBS\Proiect OOP\Unit1.h=D:\EmbarcaderoServerClient\Client\Unit1.h</Transaction>
+    <Transaction>2025/11/29 11:06:28.000.213,D:\CrX's folder\ULBS\Proiect OOP\Unit1.cpp=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/11/29 11:06:28.000.213,D:\CrX's folder\ULBS\Proiect OOP\Unit1.dfm=D:\EmbarcaderoServerClient\Client\Unit1.dfm</Transaction>
+    <Transaction>2025/11/29 11:06:28.000.200,D:\CrX's folder\ULBS\Proiect OOP\Project1PCH1.h=D:\EmbarcaderoServerClient\Client\ClientSidePCH1.h</Transaction>
+    <Transaction>2025/11/29 11:06:28.000.238,D:\CrX's folder\ULBS\Proiect OOP\Project1.cbproj=D:\EmbarcaderoServerClient\Client\ClientSide.cbproj</Transaction>
+    <Transaction>2025/11/29 11:06:32.000.649,D:\EmbarcaderoServerClient\Client\Unit1.dfm=D:\EmbarcaderoServerClient\Client\Client.dfm</Transaction>
+    <Transaction>2025/11/29 11:06:32.000.649,D:\EmbarcaderoServerClient\Client\Unit1.cpp=D:\EmbarcaderoServerClient\Client\Client.cpp</Transaction>
+    <Transaction>2025/11/29 11:06:32.000.649,D:\EmbarcaderoServerClient\Client\Unit1.h=D:\EmbarcaderoServerClient\Client\Client.h</Transaction>
+    <Transaction>2025/12/09 12:04:04.000.886,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/09 12:06:10.000.031,D:\EmbarcaderoServerClient\Client\Unit1.h=D:\EmbarcaderoServerClient\Client\Clase\MessagesToFile.h</Transaction>
+    <Transaction>2025/12/09 12:06:10.000.031,D:\EmbarcaderoServerClient\Client\Unit1.cpp=D:\EmbarcaderoServerClient\Client\Clase\MessagesToFile.cpp</Transaction>
+    <Transaction>2025/12/12 19:17:12.000.212,=D:\EmbarcaderoServerClient\Client\Imagini\themes.jpg</Transaction>
+    <Transaction>2025/12/12 19:23:58.000.317,=D:\EmbarcaderoServerClient\Client\Imagini\themes.png</Transaction>
+    <Transaction>2025/12/12 19:51:27.000.009,=D:\EmbarcaderoServerClient\Client\Imagini\themes.bmp</Transaction>
+    <Transaction>2025/12/12 19:54:59.000.766,D:\EmbarcaderoServerClient\Client\Imagini\themes.bmp=</Transaction>
+    <Transaction>2025/12/12 19:55:06.000.411,=D:\EmbarcaderoServerClient\Client\Imagini\themes_33x25.bmp</Transaction>
+    <Transaction>2025/12/12 19:55:54.000.791,D:\EmbarcaderoServerClient\Client\Imagini\themes_33x25.bmp=</Transaction>
+    <Transaction>2025/12/12 19:57:21.000.231,=D:\EmbarcaderoServerClient\Client\Imagini\themes_1_48x33.bmp</Transaction>
+    <Transaction>2025/12/12 20:00:35.000.647,D:\EmbarcaderoServerClient\Client\Imagini\themes_1_48x33.bmp=</Transaction>
+    <Transaction>2025/12/12 20:00:45.000.518,=D:\EmbarcaderoServerClient\Client\Imagini\themes_1_48x33.bmp</Transaction>
+    <Transaction>2025/12/12 20:04:44.000.876,D:\EmbarcaderoServerClient\Client\Imagini\themes_1_48x33.bmp=</Transaction>
+    <Transaction>2025/12/12 20:07:15.000.429,=D:\EmbarcaderoServerClient\Client\Imagini\theme-icon-png-27_184x145.png</Transaction>
+    <Transaction>2025/12/12 20:08:55.000.162,=D:\EmbarcaderoServerClient\Client\Imagini\theme-icon-png-27_184x145_1.bmp</Transaction>
+    <Transaction>2025/12/12 20:14:11.000.509,=D:\EmbarcaderoServerClient\Client\Imagini\theme-icon-png-27_184x145_2_90x90.bmp</Transaction>
+    <Transaction>2025/12/12 20:16:49.000.563,=D:\EmbarcaderoServerClient\Client\Imagini\themes.bmp</Transaction>
+    <Transaction>2025/12/16 22:51:19.000.038,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/16 22:58:35.000.673,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/16 22:58:55.000.193,D:\EmbarcaderoServerClient\Client\Ferestre\ThemeForm.h=D:\EmbarcaderoServerClient\Client\Unit1.h</Transaction>
+    <Transaction>2025/12/16 22:58:55.000.193,D:\EmbarcaderoServerClient\Client\Ferestre\ThemeForm.cpp=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/16 22:58:55.000.193,D:\EmbarcaderoServerClient\Client\Ferestre\ThemeForm.dfm=D:\EmbarcaderoServerClient\Client\Unit1.dfm</Transaction>
+    <Transaction>2025/12/17 21:50:20.000.365,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/17 21:50:35.000.318,D:\EmbarcaderoServerClient\Client\Unit1.h=D:\EmbarcaderoServerClient\Client\Clase\UserSettings.h</Transaction>
+    <Transaction>2025/12/17 21:50:35.000.318,D:\EmbarcaderoServerClient\Client\Unit1.cpp=D:\EmbarcaderoServerClient\Client\Clase\UserSettings.cpp</Transaction>
+    <Transaction>2025/12/18 11:17:08.000.734,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/18 11:17:23.000.777,D:\EmbarcaderoServerClient\Client\Clase\TButonCustom.cpp=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2025/12/18 11:17:23.000.777,D:\EmbarcaderoServerClient\Client\Clase\TButonCustom.h=D:\EmbarcaderoServerClient\Client\Unit1.h</Transaction>
+    <Transaction>2025/12/18 11:20:53.000.992,D:\EmbarcaderoServerClient\Client\Clase\TButonCustom.cpp=</Transaction>
+    <Transaction>2025/12/18 11:33:56.000.144,=D:\EmbarcaderoServerClient\Client\Clase\TButonCustom.cpp</Transaction>
+    <Transaction>2025/12/18 11:42:28.000.665,D:\EmbarcaderoServerClient\Client\Clase\TButonCustom.cpp=</Transaction>
+    <Transaction>2026/01/02 13:28:41.000.711,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2026/01/02 13:29:38.000.035,D:\EmbarcaderoServerClient\Client\Clase\Message.cpp=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2026/01/02 13:29:38.000.035,D:\EmbarcaderoServerClient\Client\Clase\Message.h=D:\EmbarcaderoServerClient\Client\Unit1.h</Transaction>
+    <Transaction>2026/01/04 13:58:08.000.550,=D:\EmbarcaderoServerClient\Client\Unit1.cpp</Transaction>
+    <Transaction>2026/01/04 13:58:43.000.425,D:\EmbarcaderoServerClient\Client\Unit1.h=D:\EmbarcaderoServerClient\Client\Ferestre\PresetsForm.h</Transaction>
+    <Transaction>2026/01/04 13:58:43.000.425,D:\EmbarcaderoServerClient\Client\Unit1.dfm=D:\EmbarcaderoServerClient\Client\Ferestre\PresetsForm.dfm</Transaction>
+    <Transaction>2026/01/04 13:58:43.000.425,D:\EmbarcaderoServerClient\Client\Unit1.cpp=D:\EmbarcaderoServerClient\Client\Ferestre\PresetsForm.cpp</Transaction>
+    <Transaction>2026/01/10 11:19:15.000.182,=D:\EmbarcaderoServerClient\Client\ClientSide_resources.rc</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Clase"/>
+    <File Path="Clase\MessagesToFile.cpp"/>
+    <File Path="Clase\MessagesToFile.cpp"/>
+    <File Path="Clase\MessagesToFile.h"/>
+    <File Path="Clase\UserSettings.cpp"/>
+    <File Path="Clase\UserSettings.cpp"/>
+    <File Path="Clase\UserSettings.h"/>
+    <File Path="Clase\Message.cpp"/>
+    <File Path="Clase\Message.cpp"/>
+    <File Path="Clase\Message.h"/>
+    <File Path="Ferestre"/>
+    <File Path="Ferestre\ThemeForm.cpp"/>
+    <File Path="Ferestre\ThemeForm.cpp"/>
+    <File Path="Ferestre\ThemeForm.dfm"/>
+    <File Path="Ferestre\ThemeForm.h"/>
+    <File Path="Ferestre\PresetsForm.cpp"/>
+    <File Path="Ferestre\PresetsForm.cpp"/>
+    <File Path="Ferestre\PresetsForm.dfm"/>
+    <File Path="Ferestre\PresetsForm.h"/>
+    <File Path="Imagini"/>
+    <File Path="Imagini\themes.bmp"/>
+    <File Path="Client.cpp"/>
+    <File Path="Client.cpp"/>
+    <File Path="Client.dfm"/>
+    <File Path="Client.h"/>
+    <File Path="ClientSide.cpp"/>
+    <File Path="ClientSidePCH1.h"/>
+    <File Path="ClientSide_resources.rc"/>
+  </ProjectSortOrder>
+</BorlandProject>

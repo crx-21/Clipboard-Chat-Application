@@ -1,0 +1,28 @@
+//---------------------------------------------------------------------------
+
+#ifndef UserSettingsH
+#define UserSettingsH
+//---------------------------------------------------------------------------
+class UserSettings
+{
+  String ColourForm;
+  String ColourMemo;
+  String ColourEdit;
+  String ColourText;
+  bool CheckThemeFolder=0;
+  public:
+  void SetColourForm(String Color);
+  void SetColourMemo(String Color);
+  void SetColourEdit(String Color);
+  void SetColourText(String Color);
+  void SetCheckThemeFolder();
+
+  String GetColourForm();
+  String GetColourMemo();
+  String GetColourEdit();
+  String GetColourText();
+
+  bool GetCheckThemeFolder();
+
+};
+#endif

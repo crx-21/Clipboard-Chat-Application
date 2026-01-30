@@ -1,0 +1,38 @@
+//---------------------------------------------------------------------------
+
+#ifndef ServerH
+#define ServerH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <System.Win.ScktComp.hpp>
+#include "MessageManager.h"
+#include <fstream>
+using namespace std;
+//---------------------------------------------------------------------------
+class TClipboardServer : public TForm
+{
+__published:	// IDE-managed Components
+	TServerSocket *ServerSocket;
+	TMemo *Memo1;
+	TLabel *Label1;
+    void __fastcall ServerSocketClientConnect(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall ServerSocketClientDisconnect(TObject *Sender, TCustomWinSocket *Socket);
+	void __fastcall ServerSocketClientRead(TObject *Sender, TCustomWinSocket *Socket);
+
+
+
+
+private:	// User declarations
+AnsiString Str;
+public:
+MessageManager *Server;
+ofstream Backup;		// User declarations
+	__fastcall TClipboardServer(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TClipboardServer *ClipboardServer;
+//---------------------------------------------------------------------------
+#endif

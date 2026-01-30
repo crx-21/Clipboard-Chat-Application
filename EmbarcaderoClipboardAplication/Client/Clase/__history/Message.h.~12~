@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef MessageH
+#define MessageH
+//---------------------------------------------------------------------------
+class Message
+{
+protected:
+//Client
+bool Bold=false;
+bool Italic=false;
+bool Underline=false;
+//Partea ptr sv
+bool isBold = false;
+bool isItalic = false;
+bool isUnderline = false;
+public:
+bool returnBold();
+bool returnItalic();
+bool returnUnderline();
+void setBold(bool x);
+void setItalic(bool x);
+void setUnderline(bool x);
+void resetValues();
+bool returnisBold();
+bool returnisItalic();
+bool returnisUnderline();
+};
+#endif

@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#ifndef TButonCustomH
+#define TButonCustomH
+//---------------------------------------------------------------------------
+class TButonCustom: public TCustomButton
+{
+    private:
+    bool FStaysPressed;
+    void __fastcall SetStaysPressed(bool Value);
+
+public:
+    __fastcall TButonCustom(TComponent* Owner);
+
+__published:
+    __property bool StaysPressed = {read=FStaysPressed, write=SetStaysPressed, default=false};
+};
+
+
+
+#endif

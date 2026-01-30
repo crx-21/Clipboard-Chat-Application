@@ -1,0 +1,37 @@
+//---------------------------------------------------------------------------
+
+#ifndef ThemeFormH
+#define ThemeFormH
+//---------------------------------------------------------------------------
+#include "UserSettings.h"
+#include "fstream"
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+//---------------------------------------------------------------------------
+class TTheme : public TForm
+{
+__published:	// IDE-managed Components
+	TButton *Nature;
+	TButton *Aqua;
+	TButton *Red;
+	TLabel *LabelNature;
+	TLabel *LabelAqua;
+	TLabel *LabelRed;
+	TButton *btnDefault;
+	void __fastcall NatureClick(TObject *Sender);
+	void __fastcall AquaClick(TObject *Sender);
+	void __fastcall RedClick(TObject *Sender);
+	void __fastcall btnDefaultClick(TObject *Sender);
+private:	// User declarations
+public:		// User declarations
+	__fastcall TTheme(TComponent* Owner);
+	UserSettings *SetariUser;
+    ofstream UserSettingsFile("D:\\EmbarcaderoServerClient\\Client\\UserSettings");
+
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TTheme *Theme;
+//---------------------------------------------------------------------------
+#endif

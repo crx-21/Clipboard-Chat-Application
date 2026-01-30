@@ -1,0 +1,30 @@
+//---------------------------------------------------------------------------
+#include <vector>
+#include "UserSettings.h"
+#ifndef MessagesToFileH
+#define MessagesToFileH
+#include <System.hpp>
+using namespace std;
+
+class UserSettings;
+
+class MessagesToFile
+{   private:
+    UserSettings setari;
+	protected:
+	String Path="D:\\EmbarcaderoServerClient\\Client\\SavedMessages\\Saved.txt";
+	vector<String>SavedMessages;
+	bool GlobalCheck=false;
+	public:
+	void AddVector(String text);
+	String returnPath();
+	void setPath(String filePath);
+	void SetGlobalCheck(bool ok);
+	bool GetGlobalCheck();
+
+	bool GetCheckThemeFolder();
+    void SetCheckThemeFolder(bool set);
+
+};
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,47 @@
+//---------------------------------------------------------------------------
+#ifndef MessageH
+#define MessageH
+#include <map>
+#include <string>
+//---------------------------------------------------------------------------
+class Message
+{
+protected:
+	String text;
+	String user;
+	map <int,string> clientUsers;
+public:
+TDateTime timestamp;
+Message();
+Message(String text,String user);
+//Metode:
+void RegisterUser(int SocketHandle)
+{
+	 clientUsers[SocketHandle]=user;
+}
+bool isUser(String InputUser)
+{
+   if (InputUser.Pos("/user ") == 1) return true;
+   else return false;
+}
+void setText(String InputText)
+{
+   text=InputText;
+
+}
+void setUser(String InputUser)
+{
+    user=InputUser;
+}
+String getText()
+{
+return text;
+}
+
+String returnCorectUser(int SocketHandle)
+{
+	user=clientUsers[SocketHandle]
+	return user;
+}
+};
+#endif

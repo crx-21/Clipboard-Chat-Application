@@ -1,0 +1,283 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Client.h"
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TClipboardClient *ClipboardClient;
+
+//---------------------------------------------------------------------------
+__fastcall TClipboardClient::TClipboardClient(TComponent* Owner)
+	: TForm(Owner)
+{
+	  fisierClient=new MessagesToFile();
+
+	  Graphics::TBitmap *OriginalBmp = new Graphics::TBitmap();
+	  Graphics::TBitmap *ResizedBmp = new Graphics::TBitmap();
+
+	  try
+	  {
+
+
+		   OriginalBmp->LoadFromResourceName((THandle)HInstance, "Bitmap_1");
+		   ResizedBmp->SetSize(32, 25);
+		   ResizedBmp->Canvas->StretchDraw(TRect(0, 0, 32, 25),OriginalBmp);
+           btnThemes->Glyph->Assign(ResizedBmp);
+
+	  }
+	  __finally
+	  {
+		  delete OriginalBmp;
+		  delete ResizedBmp;
+	  }
+}
+//---------------------------------------------------------------------------
+  void __fastcall TClipboardClient::btnSendClick(TObject *Sender)
+{
+   Str = Edit1->Text; //textul
+	TColor selectedColor = ColorBox1->Selected; //Luam culoarea din ColorBox pentru setare locala si trimitere hex
+	String colorHex = IntToHex((int)selectedColor, 6);  //trimitem ca si hex, daca am fi trimis normal ar fi primit doar un cod in int, fara a fi conversia potrivita
+	//incepem de la finalul textului
+	CasutaText->SelStart = CasutaText->Text.Length();
+	CasutaText->SelLength = 0;
+
+	//resetam la default si adaugam user
+    CasutaText->SelAttributes->Style = TFontStyles();
+	CasutaText->SelText = User + "(me): ";
+	//Formatam stilul
+    TFontStyles style;
+
+	if (mesajeClient->returnisBold()) {
+        style = style << fsBold;
+    }
+	if (mesajeClient->returnisItalic()) {
+        style = style << fsItalic;
+    }
+    if (mesajeClient->returnisUnderline()) {
+        style = style << fsUnderline;
+	}
+   CasutaText->SelAttributes->Style = style; //Aplicam stilul formatat
+   CasutaText->SelAttributes->Color = selectedColor;
+   CasutaText->SelText = Str + "\r\n";
+
+   Check=CheckBox->Checked;//Face rost de starea mesajului daca e salvat sau nu
+   Edit1->Text=" ";//Reseteaza cutiuta unde user-ul adauga text si trimite
+   if(mesajeClient->returnisBold()==true) Str="<b>"+Str+ "</b>";
+   if(mesajeClient->returnisItalic()==true) Str="<i>"+Str + "</i>";
+   if(mesajeClient->returnisUnderline()==true) Str="<U>"+Str + "</U>";
+   ClientSocket->Socket->SendText("<c:"+colorHex+">"+Str + "</c>" + Check); //Trimite pachetul la server
+   if(fisierClient->GetGlobalCheck()==false && Check==1) //Se executa doar o data (prima oara cand se salveaza un mesaj)
+   {
+   ShowMessage("Te rugam alege unde vrei sa iti salvezi fisierul si da-i un nume");
+   if(OpenDialog1->Execute()) //Deschide daca e posibil Dialog box-ul pentru salvare path
+   {
+	  String UserfilePath = OpenDialog1->FileName;   //Ia path-ul dat de user
+	   ShowMessage("Selected file: " + UserfilePath);  //Afiseaza
+	   fisierClient->SetGlobalCheck(true);               //Schimba starea Check-ului global, (Nu se mai poate selecta alt path ptr salvare)
+	   fisierClient->setPath(UserfilePath+".txt");       //Seteaza si path-ul din clasa noastra pentru folosire propriu zisa
+   String filePath=fisierClient->returnPath();    //Trebuie sa convertim acum in ANSI string-ul nostru
+   AnsiString pathAnsi=filePath;          //Functia open a fisierului nostru accepta const char asadar folosim .c_str() pentru a obtine const char
+   FisierLocal.open(pathAnsi.c_str());    //intr-un final se deschide fisierul cu path-ul convertit
+   }
+   }
+   if (FisierLocal.is_open() && Check==1)    //Scriem daca check-ul e acolo.
+   {
+   FisierLocal << Str << endl;
+   }
+   else if(Check==1 && !FisierLocal.is_open()) ShowMessage("Eroare:Fisierul nu este deschis!/N-ai ales inca un path"); //Daca check-ul nostru e bifat da totusi fisierul nu e deschis inseamna ca avem o eroare
+   mesajeClient->resetValues();
+}
+
+
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::ClientSocketDisconnect(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+Socket->SendText(User + "Disconnected"); //Trimitem date deconectare la sv
+btnSend->Enabled=False; //Restrictionam acesul
+Edit1->Enabled=False;
+FisierLocal.close(); //Inchidem fisier
+delete fisierClient;
+delete mesajeClient;
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::ClientSocketError(TObject *Sender, TCustomWinSocket *Socket,
+          TErrorEvent ErrorEvent, int &ErrorCode)
+{
+ShowMessage("SOCKET ERROR IN CLIENT: " + IntToStr(ErrorCode) +" Event: " + IntToStr((int)ErrorEvent));
+
+    ErrorCode = 0;
+    ClientSocket->Active = false;
+
+
+ CasutaText->Enabled=false;
+  btnSend->Enabled=false;
+  Edit1->Enabled=false;
+  CheckBox->Enabled=false;
+  btnUserSet->Enabled=false;
+  btnCopy->Enabled=false;
+  CasutaText->Text=CasutaText->Text+"No connection found!\r\n";
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::ClientSocketRead(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+if (presetsFormOpen)
+    {
+        Socket->ReceiveText();
+        return;
+    }
+
+    String receivedText = Socket->ReceiveText();
+	mesajeClient->InterpreteazaMesaj(receivedText, CasutaText);
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::ClientSocketConnect(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+if(FileExists("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt"))
+{
+	fisierClient->SetCheckThemeFolder(1);
+}
+else
+{
+	fisierClient->SetCheckThemeFolder(0);
+}
+  ShowMessage("Te-ai Conectat! Pentru a te putea identifica, introdu username-ul tau"); //informativ
+
+  if(fisierClient->GetCheckThemeFolder()==1) //Merge apelat prin metoda wrapper
+  {
+	int valCuloare;
+	FisierSetari.open("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt");
+	FisierSetari >> valCuloare;
+	ClipboardClient->Color=(TColor)valCuloare;
+	FisierSetari >> valCuloare;
+	ClipboardClient->CasutaText->Color=(TColor)valCuloare;
+	FisierSetari >> valCuloare;
+	ClipboardClient->Edit1->Color=(TColor)valCuloare;
+	ClipboardClient->UserBox->Color=(TColor)valCuloare;
+	FisierSetari >> valCuloare;
+	ClipboardClient->UserBox->Font->Color=(TColor)valCuloare;
+    ClipboardClient->Edit1->Font->Color=(TColor)valCuloare;
+  }
+  for (int i = 0; i < Screen->Fonts->Count; i++)
+    FontList->Items->Add(Screen->Fonts->Strings[i]); //Load la toate fonturile din sistem.
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::btnUserSetClick(TObject *Sender)
+{
+  //Trimte spre sv pachetul user
+ CasutaText->Enabled=true;
+  btnThemes->Enabled=true;
+  btnSend->Enabled=true;
+  btnBold->Enabled=true;
+  btnItalic->Enabled=true;
+  btnUnderline->Enabled=true;
+  FontList->Enabled=true;
+  ColorBox1->Enabled=true;
+  Edit1->Enabled=true;
+  CheckBox->Enabled=true;
+  btnCopy->Enabled=true;
+  btnPresets->Enabled=true;
+  User=UserBox->Text;
+  ClientSocket->Socket->SendText("/user "+ User);
+  btnUserSet->Enabled=false; //Interzicem user-ului sa-si schimbe numele
+}
+//---------------------------------------------------------------------------
+void __fastcall TClipboardClient::ClientSocketConnecting(TObject *Sender, TCustomWinSocket *Socket)
+
+{
+CasutaText->Lines->Clear(); //Curatam inainte de rulare
+
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TClipboardClient::btnThemesClick(TObject *Sender)
+{
+ TTheme *Theme = new TTheme(this); //creeam un pointer de a accesa formul nostru
+try
+	{
+
+		Theme->ShowModal();
+		Theme->Height=400;    //legate de afisare
+		Theme->Width=200;
+	}
+	__finally
+	{
+		delete Theme; // curatam memoria
+	}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TClipboardClient::btnBoldClick(TObject *Sender)
+{
+
+Str=Edit1->Text;
+mesajeClient->setisBold(true);
+
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TClipboardClient::btnItalicClick(TObject *Sender)
+{
+// Button apasat =>  text italic
+Str=Edit1->Text;
+mesajeClient->setisItalic(true);
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TClipboardClient::btnUnderlineClick(TObject *Sender)
+{
+
+		// Button apasat =>  text underline
+		Str=Edit1->Text;
+		mesajeClient->setisUnderline(true);
+
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TClipboardClient::btnCopyClick(TObject *Sender)
+{
+CasutaText->SelStart=23;
+CasutaText->SelLength=CasutaText->Text.Length()-21;
+CasutaText->CopyToClipboard();
+ShowMessage("S-a copiat chat-ul cu succes in clipboard foloseste CTRL+V");
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TClipboardClient::btnPresetsClick(TObject *Sender)
+{
+TPresets *Presets=new TPresets(this);
+presetsFormOpen = true;
+
+     try
+	{
+        ShowMessage("In mod default se va incarca Preset1");
+		Presets->ShowModal();
+		Presets->Height=480;    //legate de afisare
+		Presets->Width=470;
+
+
+	}
+	__finally
+	{
+        presetsFormOpen = false;
+		delete Presets; // curatam memoria
+	}
+}
+//---------------------------------------------------------------------------
+
+

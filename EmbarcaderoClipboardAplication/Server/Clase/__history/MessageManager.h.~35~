@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#ifndef MessageManagerH
+#define MessageManagerH
+#include "Message.h"
+
+using namespace std;
+//---------------------------------------------------------------------------
+class MessageManager:public Message
+{
+	  protected:
+	  bool Checker;
+	  public:
+//Metode:
+void RegisterUser(int SocketHandle);
+bool isUser(String InputUser);
+void setCheckedFromText(AnsiString VerifyCheck);
+bool getCheckStatus();
+String returnCorectUser(int SocketHandle);
+String getTime();
+
+};
+
+#endif

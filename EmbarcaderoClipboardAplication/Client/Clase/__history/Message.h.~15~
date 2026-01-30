@@ -1,0 +1,44 @@
+//---------------------------------------------------------------------------
+
+#ifndef MessageH
+#define MessageH
+#include <System.Classes.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Vcl.Graphics.hpp>
+//---------------------------------------------------------------------------
+using namespace std;
+
+class Message
+{
+protected:
+//Client
+bool Bold=false;
+bool Italic=false;
+bool Underline=false;
+TColor messageColor;
+String username;
+String messageText;
+String timestamp;
+//Partea ptr sv
+bool isBold = false;
+bool isItalic = false;
+bool isUnderline = false;
+public:
+bool returnBold();
+bool returnItalic();
+bool returnUnderline();
+void setBold(bool x);
+void setItalic(bool x);
+void setUnderline(bool x);
+void resetValues();
+
+bool returnisBold();
+bool returnisItalic();
+bool returnisUnderline();
+void setisBold(bool x);
+void setisItalic(bool x);
+void setisUnderline(bool x);
+
+
+};
+#endif

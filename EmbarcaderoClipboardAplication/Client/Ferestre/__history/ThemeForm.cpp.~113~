@@ -1,0 +1,157 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "ThemeForm.h"
+#include "Client.h"
+#include "PresetsForm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TTheme *Theme;
+//---------------------------------------------------------------------------
+__fastcall TTheme::TTheme(TComponent* Owner)
+	: TForm(Owner)
+{
+SetariUser=new UserSettings();
+}
+//---------------------------------------------------------------------------
+void __fastcall TTheme::NatureClick(TObject *Sender)
+{
+AnsiString Str;
+if(SetariUser->GetCheckThemeFolder()==0)
+{
+ClipboardClient->Color=clMoneyGreen;
+ClipboardClient->CasutaText->Color=clSkyBlue;
+ClipboardClient->Edit1->Color=clOlive;
+ClipboardClient->UserBox->Color=clOlive;
+ClipboardClient->UserBox->Font->Color=clBlack;
+ClipboardClient->Edit1->Font->Color=clBlack;
+
+SetariUser->SetColourForm(ClipboardClient->Color);
+SetariUser->SetColourMemo(ClipboardClient->CasutaText->Color);
+SetariUser->SetColourEdit(ClipboardClient->Edit1->Color);
+SetariUser->SetColourText(ClipboardClient->Edit1->Font->Color);
+
+UserSettingsFile.open("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt");
+Str=SetariUser->GetColourForm();
+UserSettingsFile << Str.c_str()		<< endl;
+Str= SetariUser->GetColourMemo();
+UserSettingsFile << Str.c_str() << endl;
+Str= SetariUser->GetColourEdit();
+UserSettingsFile << Str.c_str() << endl;
+Str=SetariUser->GetColourText();
+UserSettingsFile << Str.c_str() << endl;
+UserSettingsFile.close();
+SetariUser->SetCheckThemeFolder(1);
+Close();
+}
+else
+{
+
+}
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTheme::AquaClick(TObject *Sender)
+{
+AnsiString Str;
+if(SetariUser->GetCheckThemeFolder()==0)
+{
+ ClipboardClient->Color=clTeal;
+ClipboardClient->CasutaText->Color=clAqua;
+ClipboardClient->Edit1->Color=clWhite;
+ClipboardClient->UserBox->Color=clWhite;
+ClipboardClient->UserBox->Font->Color=clBlack;
+ClipboardClient->Edit1->Font->Color=clBlack;
+
+SetariUser->SetColourForm(ClipboardClient->Color);
+SetariUser->SetColourMemo(ClipboardClient->CasutaText->Color);
+SetariUser->SetColourEdit(ClipboardClient->Edit1->Color);
+SetariUser->SetColourText(ClipboardClient->Edit1->Font->Color);
+
+UserSettingsFile.open("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt");
+Str=SetariUser->GetColourForm();
+UserSettingsFile << Str.c_str()	 << endl;
+Str= SetariUser->GetColourMemo();
+UserSettingsFile << Str.c_str() << endl;
+Str= SetariUser->GetColourEdit();
+UserSettingsFile << Str.c_str() << endl;
+Str=SetariUser->GetColourText();
+UserSettingsFile << Str.c_str() << endl;
+UserSettingsFile.close();
+SetariUser->SetCheckThemeFolder(1);
+Close();
+}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTheme::RedClick(TObject *Sender)
+{
+AnsiString Str;
+if(SetariUser->GetCheckThemeFolder()==0)
+{
+ClipboardClient->Color=clRed;
+ClipboardClient->CasutaText->Color=clMaroon;
+ClipboardClient->Edit1->Color=clBlack;
+ClipboardClient->UserBox->Color=clBlack;
+ClipboardClient->Edit1->Font->Color=clWhite;
+ClipboardClient->UserBox->Font->Color=clWhite;
+
+SetariUser->SetColourForm(ClipboardClient->Color);
+SetariUser->SetColourMemo(ClipboardClient->CasutaText->Color);
+SetariUser->SetColourEdit(ClipboardClient->Edit1->Color);
+SetariUser->SetColourText(ClipboardClient->Edit1->Font->Color);
+
+UserSettingsFile.open("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt");
+Str=SetariUser->GetColourForm();
+UserSettingsFile << Str.c_str()	 << endl;
+Str= SetariUser->GetColourMemo();
+UserSettingsFile << Str.c_str() << endl;
+Str= SetariUser->GetColourEdit();
+UserSettingsFile << Str.c_str() << endl;
+Str=SetariUser->GetColourText();
+UserSettingsFile << Str.c_str() << endl;
+UserSettingsFile.close();
+SetariUser->SetCheckThemeFolder(1);
+Close();
+}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTheme::btnDefaultClick(TObject *Sender)
+{
+AnsiString Str;
+if(SetariUser->GetCheckThemeFolder()==0)
+{
+ClipboardClient->Color=clBtnFace;
+ClipboardClient->CasutaText->Color=clWhite;
+ClipboardClient->Edit1->Color=clWhite;
+ClipboardClient->UserBox->Color=clWhite;
+ClipboardClient->UserBox->Font->Color=clBlack;
+ClipboardClient->Edit1->Font->Color=clBlack;
+
+SetariUser->SetColourForm(ClipboardClient->Color);
+SetariUser->SetColourMemo(ClipboardClient->CasutaText->Color);
+SetariUser->SetColourEdit(ClipboardClient->Edit1->Color);
+SetariUser->SetColourText(ClipboardClient->Edit1->Font->Color);
+
+UserSettingsFile.open("D:\\EmbarcaderoServerClient\\Client\\UserSettings\\Settings.txt");
+Str=SetariUser->GetColourForm();
+UserSettingsFile << Str.c_str()	 << endl;
+Str= SetariUser->GetColourMemo();
+UserSettingsFile << Str.c_str() << endl;
+Str= SetariUser->GetColourEdit();
+UserSettingsFile << Str.c_str() << endl;
+Str=SetariUser->GetColourText();
+UserSettingsFile << Str.c_str() << endl;
+UserSettingsFile.close();
+SetariUser->SetCheckThemeFolder(1);
+Close();
+}
+
+}
+//---------------------------------------------------------------------------
+

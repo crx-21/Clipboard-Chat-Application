@@ -1,0 +1,47 @@
+//---------------------------------------------------------------------------
+
+#ifndef MessageManagerH
+#define MessageManagerH
+#include "Message.h"
+
+using namespace std;
+//---------------------------------------------------------------------------
+class MessageManager:public Message
+{
+	  protected:
+	  bool Checker;
+	  public:
+//Metode:
+void RegisterUser(int SocketHandle)
+{
+	 clientUsers[SocketHandle]=user.c_str();
+}
+bool isUser(String InputUser)
+{
+   if (InputUser.Pos("/user ") == 1) return true;   //Verificarea se face daca intalnim eticheta /user
+   else return false;
+}
+
+void setCheckedFromText(AnsiString VerifyCheck)
+{
+Checker=VerifyCheck.SubString(VerifyCheck.Length(),1).ToInt();
+
+}
+bool getCheckStatus()
+{
+    return Checker;
+}
+String returnCorectUser(int SocketHandle)
+{
+	user=clientUsers[SocketHandle];
+	return user;
+}
+String getTime()
+{
+ String time;
+   time=timestamp.Now();
+   return time;
+}
+};
+
+#endif

@@ -1,0 +1,118 @@
+﻿//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "PresetsForm.h"
+#include "Client.h"
+
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TPresets *Presets;
+//---------------------------------------------------------------------------
+__fastcall TPresets::TPresets(TComponent* Owner)
+	: TForm(Owner)
+{
+CasutaTextPreset->Clear();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TPresets::btnPreset1Click(TObject *Sender)
+{
+CasutaTextPreset->PlainText = true;
+CasutaTextPreset->Lines->LoadFromFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset1.txt");
+CasutaTextPreset->PlainText = false;
+PresetSelector=1;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TPresets::btnPreset2Click(TObject *Sender)
+{
+CasutaTextPreset->PlainText = true;
+CasutaTextPreset->Lines->LoadFromFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset2.txt");
+CasutaTextPreset->PlainText = false;
+PresetSelector=2;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TPresets::btnPreset3Click(TObject *Sender)
+{
+CasutaTextPreset->PlainText = true;
+CasutaTextPreset->Lines->LoadFromFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset3.txt");
+CasutaTextPreset->PlainText = false;
+PresetSelector=3;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TPresets::btnClearClick(TObject *Sender)
+{
+CasutaTextPreset->Clear();
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TPresets::btnLoadClipboardClick(TObject *Sender)
+{
+
+	TClipboardClient *clientForm = dynamic_cast<TClipboardClient*>(Owner);
+	TMemoryStream *stream = new TMemoryStream();
+     if (!clientForm)
+	{
+        ShowMessage("Eroare: Nu pot accesa form-ul Client!");
+        return;
+	}
+
+    try
+    {
+        clientForm->CasutaText->Lines->SaveToStream(stream);
+        stream->Position = 0;
+        CasutaTextPreset->Lines->LoadFromStream(stream);
+
+		ShowMessage("Clipboard incarcat");
+    }
+    __finally
+    {
+		delete stream;
+
+	}
+}
+
+//---------------------------------------------------------------------------
+
+void __fastcall TPresets::btnCopyClipboardClick(TObject *Sender)
+{
+CasutaTextPreset->SelStart=0;
+CasutaTextPreset->SelLength=CasutaTextPreset->Text.Length();
+CasutaTextPreset->CopyToClipboard();
+ShowMessage("S-a copiat chat-ul cu succes in clipboard foloseste CTRL+V");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TPresets::btnSaveClick(TObject *Sender)
+{
+switch(PresetSelector)
+{
+	case 1:
+	CasutaTextPreset->PlainText=true;
+	CasutaTextPreset->Lines->SaveToFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset1.txt");
+	CasutaTextPreset->PlainText = false;
+	break;
+	case 2:
+	CasutaTextPreset->PlainText=true;
+	CasutaTextPreset->Lines->SaveToFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset2.txt");
+	CasutaTextPreset->PlainText = false;
+	break;
+	case 3:
+	CasutaTextPreset->PlainText=true;
+	CasutaTextPreset->Lines->SaveToFile("D:\\EmbarcaderoServerClient\\Client\\UserPresets\\Preset3.txt");
+	CasutaTextPreset->PlainText = false;
+	break;
+	default:
+    ShowMessage("Eroare la alegere preset");
+}
+ShowMessage("sdaa");
+}
+//---------------------------------------------------------------------------
+
