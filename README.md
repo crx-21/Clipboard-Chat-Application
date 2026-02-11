@@ -16,10 +16,16 @@ Here is an example of Client 1 discussing with Client 2 and using most of the ap
 ### This is what happens on the Server:
 ![image alt](https://github.com/crx-21/Clipboard-Chat-Application/blob/master/Server.PNG?raw=true)
 
-Every message sent towards the server comes with flags attached to the message. The Server's job is to parse this messages and send back to the clients in such way that the message can be succesfuly interpreted.
+Every message sent towards the server comes with flags attached to the message. 
+
+The Server's job is to parse this messages and send back to the clients in such way that the message can be succesfuly interpreted.
+
 Other functionalities not present in the photos:
+
 -Theme Selector. Users can select one of the 3 themes available. They are remembered on the next login.
+
 -Message Saver. Users can save select messages. (They are saved in a backup txt file for safety reasons)
+
 -Presets. Users can work on long messages, and use them as a presets. You can load the chat into the Preset and edit it as you wish. Then save it to a txt file.
 
 
