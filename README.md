@@ -16,4 +16,6 @@ Here is an example of Client 1 discussing with Client 2 and using most of the ap
 ### This is what happens on the Server:
 ![image alt](https://github.com/crx-21/Clipboard-Chat-Application/blob/master/Server.PNG?raw=true)
 
+Every message sent towards the server comes with flags attached to the message. The Server's job is to parse this messages and send back to the clients in such way that the message can be succesfuly interpreted.
+
 
