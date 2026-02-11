@@ -7,3 +7,5 @@ Folder contains:
 -Client: Used to run the client side of the project, cannot run without server side. ✅
 
 -Server: Ensures to log every user action and send packages to every single client. ✅
+
+![image alt](https://github.com/crx-21/Clipboard-Chat-Application/blob/master/Server.PNG?raw=true)
